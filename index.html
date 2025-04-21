@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatCare - Aplikasi Diskusi Tim dengan Analisis Emosi</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <i class="fas fa-comments"></i>
+                ChatCare
+            </a>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="index.html" class="active">Beranda</a>
+                <a href="diskusi.html">Diskusi</a>
+                <a href="laporan.html">Laporan</a>
+                <a href="tentang.html">Tentang</a>
+                <a href="kontak.html">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Selamat Datang di ChatCare</h1>
+            <p class="tagline">Diskusi tim yang lebih baik dengan pemantauan emosi cerdas 🎯</p>
+            <a href="diskusi.html" class="btn-primary">Mulai Diskusi</a>
+        </header>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <span class="emoji">💬</span>
+                <h3>Diskusi Real-time</h3>
+                <p>Berkomunikasi dengan tim Anda secara langsung dalam antarmuka yang intuitif</p>
+            </div>
+            <div class="feature-card">
+                <span class="emoji">😊</span>
+                <h3>Analisis Emosi</h3>
+                <p>Pantau suasana tim secara otomatis melalui analisis pesan</p>
+            </div>
+            <div class="feature-card">
+                <span class="emoji">📊</span>
+                <h3>Laporan Interaktif</h3>
+                <p>Lihat statistik dan tren emosi tim dalam bentuk visual yang menarik</p>
+            </div>
+            <div class="feature-card">
+                <span class="emoji">💡</span>
+                <h3>Saran Otomatis</h3>
+                <p>Dapatkan rekomendasi saat suasana tim mulai tegang</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Mobile menu toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+
+        // Add active class to current page
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

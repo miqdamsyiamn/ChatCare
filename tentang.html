@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang - ChatCare</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .team-section {
+            margin-top: 3rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--primary-color);
+            border-radius: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        .team-member h3 {
+            color: var(--text-color);
+            margin: 0.5rem 0;
+        }
+
+        .team-member p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .mission-section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: var(--primary-color);
+            border-radius: 1rem;
+            text-align: center;
+        }
+
+        .mission-section .emoji {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-section {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+
+        .feature-list {
+            margin: 2rem 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .feature-list .emoji {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">
+                <i class="fas fa-comments"></i>
+                ChatCare
+            </a>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="index.html">Beranda</a>
+                <a href="diskusi.html">Diskusi</a>
+                <a href="laporan.html">Laporan</a>
+                <a href="tentang.html" class="active">Tentang</a>
+                <a href="kontak.html">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Tentang ChatCare</h1>
+            <p class="tagline">Asisten Emosi untuk Tim Belajar Daring</p>
+        </header>
+
+        <div class="about-section">
+            <h2>Apa itu ChatCare?</h2>
+            <p>ChatCare adalah platform inovatif yang dirancang khusus untuk membantu tim belajar daring dalam mengelola dan memahami dinamika emosional selama diskusi online.</p>
+
+            <div class="feature-list">
+                <h3>Fitur Utama:</h3>
+                <ul>
+                    <li>
+                        <span class="emoji">💬</span>
+                        <div>
+                            <strong>Chat Real-time</strong>
+                            <p>Komunikasi langsung antar anggota tim dengan antarmuka yang intuitif.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="emoji">🎭</span>
+                        <div>
+                            <strong>Deteksi Emosi</strong>
+                            <p>Analisis otomatis suasana hati berdasarkan konten pesan.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="emoji">📊</span>
+                        <div>
+                            <strong>Visualisasi Mood</strong>
+                            <p>Pantau suasana tim secara real-time melalui grafik interaktif.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="emoji">💡</span>
+                        <div>
+                            <strong>Rekomendasi Cerdas</strong>
+                            <p>Saran otomatis untuk menjaga suasana diskusi tetap positif.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <h3>Tujuan Kami</h3>
+            <p>ChatCare bertujuan untuk menciptakan lingkungan belajar daring yang lebih kondusif dan produktif dengan memperhatikan aspek emosional setiap anggota tim.</p>
+
+            <h3>Cara Kerja</h3>
+            <p>Aplikasi ini menggunakan teknologi deteksi emosi berbasis teks untuk menganalisis setiap pesan yang dikirim. Data ini kemudian divisualisasikan secara real-time untuk membantu tim memahami dinamika diskusi mereka.</p>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+
+        // Add active class to current page
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
