@@ -51,7 +51,7 @@ function detectEmotion(text) {
     };
 
     // Check for swear words first (immediate negative)
-    const swearWords = ['ajg', 'anj', 'anjg', 'bangsat', 'kontol', 'tai'];
+    const swearWords = ['ajg', 'anj', 'anjg'];
     if (swearWords.some(word => text.includes(word))) {
         return 'negative';
     }
