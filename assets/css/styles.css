@@ -214,6 +214,71 @@ header {
     padding: 0.5rem;
 }
 
+/* How to use section */
+.how-to-use {
+    margin: 3rem 0;
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.how-to-use h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+    position: relative;
+}
+
+.how-to-use h2:after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 0.5rem auto;
+}
+
+.steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.step {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.step-number {
+    background: var(--primary-color);
+    color: var(--text-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.step-content {
+    flex: 1;
+}
+
+.step-content h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-color);
+}
+
+.step-content p {
+    margin: 0;
+    color: #666;
+}
+
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
     body {
@@ -275,5 +340,15 @@ header {
     .btn-primary, .btn-secondary {
         width: 100%;
         text-align: center;
+    }
+    
+    .step {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+    
+    .step-number {
+        margin-bottom: 0.5rem;
     }
 }
