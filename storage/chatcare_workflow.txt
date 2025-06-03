@@ -1,0 +1,47 @@
++------------------+     +-------------------------+     +------------------------+
+|                  |     |                         |     |                        |
+|      USER        +---->+  BROWSER INTERFACE      +---->+  CHATROOM.JS           |
+|                  |     |  (Frontend)             |     |  (Client Logic)        |
++------------------+     +-------------------------+     +------------------------+
+                                                                    |
+                                                                    v
++------------------+     +-------------------------+     +------------------------+
+|                  |     |                         |     |                        |
+|  GOOGLE GEMINI   |<----+  GEMINI SERVICE         |<----+  CHATROOM CONTROLLER  |
+|  API             |     |  (Emotion Analysis)     |     |  (Server Logic)        |
++------------------+     +-------------------------+     +------------------------+
+                                    ^                               |
+                                    |                               v
++------------------+     +-------------------------+     +------------------------+
+|                  |     |                         |     |                        |
+|  DATABASE        |<----+  MESSAGE MODEL          |<----+  SESSION MODEL         |
+|                  |     |  (Message Processing)   |     |  (Session Management)  |
++------------------+     +-------------------------+     +------------------------+
+        ^                           |                               |
+        |                           v                               v
+        |               +-------------------------+     +------------------------+
+        |               |                         |     |                        |
+        +---------------+  MOOD MODEL             |<----+  VIEW RENDERING        |
+                        |  (Emotion Tracking)     |     |  (Frontend Templates)  |
+                        +-------------------------+     +------------------------+
+
+CHATCARE WORKFLOW:
+
+1. USER SENDS MESSAGE:
+   User → Browser → chatroom.js → AJAX Request → ChatroomController → MessageModel
+   → Emotion Detection → Database → JSON Response → chatroom.js → View Update
+
+2. POLLING FOR NEW MESSAGES:
+   chatroom.js → AJAX Request → ChatroomController → MessageModel → Database
+   → JSON Response → chatroom.js → View Update
+
+3. AUTO-REPLY MECHANISM:
+   MessageModel → Check Negative Messages → GeminiService → Generate Feedback
+   → Store System Message → Retrieved via Polling → View Update
+
+4. DUPLICATE PREVENTION:
+   - Client-side tracking of displayed message IDs
+   - Server-side filtering of duplicate messages
+   - DOM cleanup of duplicate messages
+   - Cooldown periods during message sending
+   - Associative arrays for unique message handling

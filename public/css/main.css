@@ -1,0 +1,166 @@
+/* Main CSS for ChatCare */
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #f57c00;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #e65100;
+}
+
+/* Custom focus styles */
+*:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(245, 124, 0, 0.3);
+}
+
+/* Animation for alerts */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.bg-green-100, .bg-red-100 {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Custom styles for buttons */
+button, .button {
+    transition: all 0.2s ease-in-out;
+}
+
+button:hover, .button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:active, .button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom styles for cards */
+.card {
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom styles for tables */
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+tr {
+    transition: background-color 0.2s ease-in-out;
+}
+
+tbody tr:hover {
+    background-color: rgba(245, 124, 0, 0.05);
+}
+
+/* Custom styles for forms */
+input, select, textarea {
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #f57c00;
+    box-shadow: 0 0 0 3px rgba(245, 124, 0, 0.2);
+}
+
+/* Responsive font sizes */
+@media (max-width: 640px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    h2 {
+        font-size: 1.25rem;
+    }
+}
+
+/* Custom styles for navigation */
+nav a {
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.2s ease-in-out;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Custom styles for modals */
+.modal {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.modal-content {
+    transition: transform 0.3s ease-in-out;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+}
+
+/* Custom styles for tooltips */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 120px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}

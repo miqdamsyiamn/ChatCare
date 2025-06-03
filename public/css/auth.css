@@ -1,0 +1,138 @@
+/* Auth Pages Styling (Login & Register) */
+
+/* Animation classes */
+.animate-fadeIn {
+    animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.delay-200 {
+    animation-delay: 0.2s;
+}
+
+.delay-400 {
+    animation-delay: 0.4s;
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Form styling */
+.form-control {
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #f57c00;
+    box-shadow: 0 0 0 3px rgba(245, 124, 0, 0.2);
+}
+
+/* Error styling */
+.error-container {
+    transition: all 0.3s ease;
+}
+
+/* Custom styling for auth pages */
+.auth-container {
+    background: linear-gradient(135deg, #fff3e0, #ffecb3);
+}
+
+.auth-card {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.auth-card:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.auth-header {
+    background: linear-gradient(135deg, #ff9800, #f57c00);
+    color: white;
+    padding: 2rem;
+}
+
+.auth-form {
+    padding: 2rem;
+}
+
+/* Button styling */
+.btn-primary {
+    background-color: #f57c00;
+    border-color: #f57c00;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e65100;
+    border-color: #e65100;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 2px solid white;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background-color: white;
+    color: #f57c00;
+    transform: translateY(-2px);
+}
+
+/* Feature icons */
+.icon-circle {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.feature:hover .icon-circle {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .auth-card {
+        flex-direction: column;
+    }
+    
+    .auth-header {
+        padding: 1.5rem;
+    }
+    
+    .auth-form {
+        padding: 1.5rem;
+    }
+}

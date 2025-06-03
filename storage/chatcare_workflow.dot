@@ -1,0 +1,124 @@
+digraph ChatCare_Workflow {
+    // Graph settings
+    rankdir=TB;
+    fontname="Arial";
+    fontsize=16;
+    bgcolor="white";
+    node [shape=box, style=filled, fillcolor=lightblue, fontname="Arial", fontsize=12, margin=0.3];
+    edge [fontname="Arial", fontsize=10, color="#666666"];
+    
+    // User interaction
+    subgraph cluster_user {
+        label="User Interaction";
+        style=filled;
+        color=lightgrey;
+        
+        user [label="User", shape=circle, fillcolor="#f57c00"];
+        browser [label="Browser\nInterface", fillcolor="#ffd54f"];
+        
+        user -> browser [label="Interacts with"];
+    }
+    
+    // Frontend components
+    subgraph cluster_frontend {
+        label="Frontend";
+        style=filled;
+        color=lightgrey;
+        
+        chatroom_js [label="chatroom.js\n(Client Logic)", fillcolor="#81c784"];
+        chat_view [label="Chatroom View\n(index.php)", fillcolor="#81c784"];
+        
+        browser -> chatroom_js [label="Executes"];
+        chatroom_js -> chat_view [label="Updates"];
+        chat_view -> browser [label="Renders in"];
+    }
+    
+    // Backend components
+    subgraph cluster_backend {
+        label="Backend";
+        style=filled;
+        color=lightgrey;
+        
+        chatroom_controller [label="ChatroomController.php", fillcolor="#64b5f6"];
+        message_model [label="MessageModel.php", fillcolor="#64b5f6"];
+        session_model [label="SessionModel.php", fillcolor="#64b5f6"];
+        mood_model [label="MoodModel.php", fillcolor="#64b5f6"];
+        gemini_service [label="GeminiService.php", fillcolor="#64b5f6"];
+        database [label="Database", shape=cylinder, fillcolor="#b39ddb"];
+        
+        chatroom_controller -> message_model [label="Uses"];
+        chatroom_controller -> session_model [label="Uses"];
+        chatroom_controller -> mood_model [label="Uses"];
+        message_model -> gemini_service [label="Uses for\nemotion analysis"];
+        message_model -> database [label="Stores/Retrieves\nmessages"];
+        session_model -> database [label="Stores/Retrieves\nsessions"];
+        mood_model -> database [label="Stores/Retrieves\nmood data"];
+    }
+    
+    // External services
+    subgraph cluster_external {
+        label="External Services";
+        style=filled;
+        color=lightgrey;
+        
+        gemini_api [label="Google Gemini API", shape=cloud, fillcolor="#ef9a9a"];
+        
+        gemini_service -> gemini_api [label="Calls for\nemotion analysis"];
+    }
+    
+    // Main workflow connections
+    chatroom_js -> chatroom_controller [label="AJAX Requests\n(send message, get messages)" color="#ff5722" penwidth=2.0];
+    chatroom_controller -> chatroom_js [label="JSON Responses" color="#ff5722" penwidth=2.0];
+    
+    // Message flow
+    edge [color="#009688", penwidth=1.5];
+    
+    // Send message flow
+    send_message [label="Send Message\nWorkflow", shape=note, fillcolor="#e6ee9c"];
+    chatroom_js -> send_message [style=dashed];
+    send_message -> chatroom_controller [label="1. POST /chatroom/send"];
+    send_message -> message_model [label="2. Create message"];
+    send_message -> gemini_service [label="3. Analyze emotion"];
+    send_message -> database [label="4. Store in DB"];
+    send_message -> chatroom_js [label="5. Return success"];
+    
+    // Get messages flow
+    get_messages [label="Get Messages\nWorkflow", shape=note, fillcolor="#e6ee9c"];
+    chatroom_js -> get_messages [style=dashed];
+    get_messages -> chatroom_controller [label="1. GET /chatroom/messages"];
+    get_messages -> message_model [label="2. Fetch new messages"];
+    get_messages -> database [label="3. Query DB"];
+    get_messages -> mood_model [label="4. Get mood data"];
+    get_messages -> chatroom_js [label="5. Return messages"];
+    
+    // Auto-reply flow
+    auto_reply [label="Auto-Reply\nWorkflow", shape=note, fillcolor="#ffcc80"];
+    message_model -> auto_reply [style=dashed];
+    auto_reply -> message_model [label="1. Check consecutive\nnegative messages"];
+    auto_reply -> gemini_service [label="2. Generate feedback"];
+    auto_reply -> database [label="3. Store system message"];
+    auto_reply -> chatroom_js [label="4. Delivered via\npolling"];
+    
+    // Duplicate prevention
+    duplicate_prevention [label="Duplicate Prevention\nMechanisms", shape=note, fillcolor="#b2dfdb"];
+    chatroom_js -> duplicate_prevention [style=dashed];
+    duplicate_prevention -> chatroom_js [label="1. Track displayed\nmessage IDs"];
+    duplicate_prevention -> chat_view [label="2. Use associative\narray for unique msgs"];
+    duplicate_prevention -> chatroom_controller [label="3. Filter duplicates\nin controller"];
+    
+    // Legend
+    subgraph cluster_legend {
+        label="Legend";
+        style=filled;
+        color=white;
+        
+        l1 [label="User Interface", fillcolor="#ffd54f"];
+        l2 [label="Frontend Logic", fillcolor="#81c784"];
+        l3 [label="Backend Logic", fillcolor="#64b5f6"];
+        l4 [label="Database", shape=cylinder, fillcolor="#b39ddb"];
+        l5 [label="External Service", shape=cloud, fillcolor="#ef9a9a"];
+        l6 [label="Workflow", shape=note, fillcolor="#e6ee9c"];
+        
+        l1 -> l2 -> l3 -> l4 -> l5 -> l6 [style=invis];
+    }
+}
