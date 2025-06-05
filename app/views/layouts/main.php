@@ -107,26 +107,23 @@
         
         <!-- Main Content -->
         <main class="flex-grow">
-            <?php if (isset($_SESSION['success_message'])): ?>
-            <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded shadow-md relative mb-4 container mx-auto mt-4" role="alert">
-                <div class="flex items-center">
-                    <svg class="h-6 w-6 text-green-500 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span class="font-medium"><?= $_SESSION['success_message'] ?></span>
-                </div>
-                <?php unset($_SESSION['success_message']); ?>
-            </div>
-            <?php endif; ?>
+            <!-- Success notifications are now handled in individual pages -->
             
             <?php if (isset($_SESSION['error_message'])): ?>
-            <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded shadow-md relative mb-4 container mx-auto mt-4" role="alert">
-                <div class="flex items-center">
-                    <svg class="h-6 w-6 text-red-500 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div class="notification notification-error container mx-auto mt-6 mb-6 max-w-2xl" role="alert">
+                <div class="notification-icon">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <span class="font-medium"><?= $_SESSION['error_message'] ?></span>
                 </div>
+                <div class="notification-message">
+                    <span class="font-medium text-base"><?= $_SESSION['error_message'] ?></span>
+                </div>
+                <button type="button" class="notification-close" onclick="this.parentElement.remove();">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
                 <?php unset($_SESSION['error_message']); ?>
             </div>
             <?php endif; ?>

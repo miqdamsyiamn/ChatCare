@@ -1,0 +1,130 @@
+/* Landing Page Styling */
+
+/* Hero section */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.wave-divider {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+}
+
+/* Animation classes */
+.animate-fadeIn {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.delay-200 {
+    animation-delay: 0.2s;
+}
+
+.delay-400 {
+    animation-delay: 0.4s;
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Intro section with swiper */
+.intro-swiper {
+    padding: 20px 0 50px;
+}
+
+.swiper-slide {
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.swiper-slide:hover {
+    transform: translateY(-5px);
+}
+
+.swiper-pagination {
+    bottom: 0;
+}
+
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: #f57c00;
+    opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background: #f57c00;
+}
+
+/* How it works section */
+.step-card {
+    transition: all 0.3s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-10px);
+}
+
+.step-number {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.step-card:hover .step-number {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* CTA section */
+.cta-section {
+    position: relative;
+}
+
+/* Button styling */
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #ff9800, #f57c00);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        text-align: center;
+    }
+    
+    .intro-swiper {
+        padding: 10px 0 40px;
+    }
+    
+    .step-card {
+        margin-bottom: 30px;
+    }
+}

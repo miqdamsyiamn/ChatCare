@@ -64,17 +64,46 @@ ob_clean();
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </a>
-                <div class="mb-8 text-center">
+                <div class="mb-6 text-center">
                     <h2 class="text-3xl font-bold text-gray-800">Login ChatCare</h2>
                     <p class="text-gray-600 mt-2">Masuk ke akun Anda</p>
                 </div>
+                
+                <!-- Success notification with improved UI -->
+                <?php if (isset($_SESSION['success_message'])): ?>
+                <div class="notification notification-success mb-6 relative overflow-hidden rounded-lg shadow-lg border border-green-200" role="alert">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 to-green-600"></div>
+                    <div class="flex items-center p-4">
+                        <div class="notification-icon success-icon bg-green-100 rounded-full p-2 mr-3">
+                            <svg class="h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div class="notification-message flex-grow">
+                            <span class="font-bold text-green-800 block"><?= $_SESSION['success_message'] ?></span>
+                            <?php if (strpos($_SESSION['success_message'], 'Registrasi berhasil') !== false): ?>
+                            <div class="text-sm mt-1 text-green-700">Silakan login dengan username dan password yang telah Anda daftarkan.</div>
+                            <?php endif; ?>
+                        </div>
+                        <div class="confetti-container"></div>
+                        <button type="button" class="notification-close text-green-500 hover:text-green-800" onclick="this.parentElement.remove();">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                    <?php unset($_SESSION['success_message']); ?>
+                </div>
+                <?php endif; ?>
                 
                 <form action="/login" method="POST" class="space-y-4">
                     <div>
                         <label for="username" class="block text-gray-700 font-medium mb-2">Username</label>
                         <input type="text" id="username" name="username" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f57c00]" value="<?= isset($data['username']) ? $data['username'] : ''; ?>" required>
                         <div class="error-container" style="min-height: 24px;">
-                            <span class="text-red-500 text-sm"><?= isset($data['username_err']) ? $data['username_err'] : ''; ?></span>
+                            <?php if(isset($data['username_err']) && !empty($data['username_err'])): ?>
+                            <span class="text-red-500 text-sm"><?= htmlspecialchars($data['username_err']) ?></span>
+                            <?php endif; ?>
                         </div>
                     </div>
                     
@@ -82,7 +111,9 @@ ob_clean();
                         <label for="password" class="block text-gray-700 font-medium mb-2">Password</label>
                         <input type="password" id="password" name="password" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#f57c00]" required>
                         <div class="error-container" style="min-height: 24px;">
-                            <span class="text-red-500 text-sm"><?= isset($data['password_err']) ? $data['password_err'] : ''; ?></span>
+                            <?php if(isset($data['password_err']) && !empty($data['password_err'])): ?>
+                            <span class="text-red-500 text-sm"><?= htmlspecialchars($data['password_err']) ?></span>
+                            <?php endif; ?>
                         </div>
                     </div>
                     

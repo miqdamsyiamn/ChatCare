@@ -29,11 +29,37 @@ class App {
             $method = $route['method'];
             
             // Load controller
-            require_once BASE_PATH . '/app/controllers/' . $controllerName . '.php';
-            $controller = new $controllerName();
+            $controllerFile = BASE_PATH . '/app/controllers/' . $controllerName . '.php';
+            if (file_exists($controllerFile)) {
+                require_once $controllerFile;
+                
+                // Check if controller class exists
+                if (class_exists($controllerName)) {
+                    $controller = new $controllerName();
+                    
+                    // Check if method exists
+                    if (method_exists($controller, $method)) {
+                        // Call method
+                        call_user_func([$controller, $method]);
+                        return;
+                    } else {
+                        // Method not found
+                        error_log("Method not found: {$controllerName}::{$method}");
+                    }
+                } else {
+                    // Controller class not found
+                    error_log("Controller class not found: {$controllerName}");
+                }
+            } else {
+                // Controller file not found
+                error_log("Controller file not found: {$controllerFile}");
+            }
             
-            // Call method
-            call_user_func([$controller, $method]);
+            // If we get here, something went wrong
+            header('HTTP/1.0 500 Internal Server Error');
+            echo '<h1>500 - Internal Server Error</h1>';
+            echo '<p>Terjadi kesalahan pada server. Silakan coba lagi nanti.</p>';
+            echo '<p><a href="/">Kembali ke halaman utama</a></p>';
         } else {
             // Route not found, show 404 page
             header('HTTP/1.0 404 Not Found');

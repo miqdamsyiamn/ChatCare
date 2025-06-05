@@ -1,0 +1,310 @@
+/* Reports CSS */
+
+/* Report list styles */
+.report-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.report-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: #4b5563;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.report-table td {
+    padding: 1rem;
+    vertical-align: middle;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.report-table tr:hover {
+    background-color: rgba(245, 124, 0, 0.05);
+}
+
+.report-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Report content styles */
+.report-content {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    height: 100%;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.report-content:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.report-header {
+    background-color: #f8f9fa;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.report-body {
+    padding: 1.5rem;
+}
+
+.report-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0;
+}
+
+.report-sidebar {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    height: 100%;
+}
+
+.report-info-item {
+    margin-bottom: 1rem;
+}
+
+.report-info-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #4b5563;
+    margin-bottom: 0.25rem;
+}
+
+.report-info-value {
+    font-size: 0.875rem;
+    color: #1f2937;
+}
+
+.report-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Summary content styles */
+.summary-content {
+    line-height: 1.6;
+    color: #374151;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.summary-content h3 {
+    color: #2563eb;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.summary-content h3:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 40px;
+    background-color: #f59e0b;
+    border-radius: 2px;
+}
+
+.summary-content ul {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.summary-content ul li {
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.summary-content .p-4 {
+    transition: all 0.3s ease;
+}
+
+.summary-content .p-4:hover {
+    background-color: #f0f9ff;
+    border-color: #bfdbfe;
+}
+
+/* Grid layout for report content */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.summary-content p {
+    margin-bottom: 1rem;
+}
+
+/* Button styles */
+.btn-primary {
+    display: inline-block;
+    background-color: #f57c00;
+    color: white;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #e65100;
+}
+
+.btn-secondary {
+    display: inline-block;
+    background-color: #4b5563;
+    color: white;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.btn-secondary:hover {
+    background-color: #374151;
+}
+
+.btn-outline {
+    display: inline-block;
+    background-color: transparent;
+    color: #4b5563;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    text-align: center;
+    border: 1px solid #d1d5db;
+    transition: all 0.2s;
+}
+
+.btn-outline:hover {
+    background-color: #f3f4f6;
+    border-color: #9ca3af;
+}
+
+/* Form styles */
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #4b5563;
+}
+
+.form-select {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    background-color: white;
+    font-size: 0.875rem;
+    color: #1f2937;
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: #f57c00;
+    box-shadow: 0 0 0 3px rgba(245, 124, 0, 0.2);
+}
+
+.btn-primary {
+    background-color: #f57c00;
+    color: white;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #e65100;
+}
+
+.btn-secondary {
+    background-color: #e5e7eb;
+    color: #4b5563;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.btn-secondary:hover {
+    background-color: #d1d5db;
+}
+
+/* Form styles */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #4b5563;
+    margin-bottom: 0.5rem;
+}
+
+.form-select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.25rem;
+    background-color: white;
+    font-size: 0.875rem;
+    color: #1f2937;
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: #f57c00;
+    box-shadow: 0 0 0 3px rgba(245, 124, 0, 0.1);
+}
+
+/* Summary content */
+.summary-content {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #1f2937;
+}
+
+.summary-content p {
+    margin-bottom: 1rem;
+}
+
+.summary-content h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.summary-content ul {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+.summary-content li {
+    margin-bottom: 0.5rem;
+}

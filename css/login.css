@@ -1,0 +1,413 @@
+/* Login page styles */
+
+/* Background animation */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+body {
+    background: linear-gradient(-45deg, #ee7752, #f57c00, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Ensure layout wrapper takes full height */
+.layout-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Floating particles */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) translateX(10px) rotate(180deg);
+    }
+    100% {
+        transform: translateY(0) translateX(0) rotate(360deg);
+    }
+}
+
+.container {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.max-w-md {
+    max-width: 28rem;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.shadow-md {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.shadow-md:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.bg-orange-500 {
+    background-color: #f57c00;
+}
+
+.hover\:bg-orange-600:hover {
+    background-color: #e65100;
+}
+
+/* Animation for login form */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.max-w-md {
+    animation: fadeInUp 0.7s ease-out;
+}
+
+/* Custom styles for form inputs */
+input {
+    transition: all 0.3s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+input:focus {
+    border-color: #f57c00;
+    box-shadow: 0 0 0 3px rgba(245, 124, 0, 0.2);
+    transform: translateY(-2px);
+    background-color: rgba(255, 255, 255, 1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .max-w-md {
+        margin: 0 1rem;
+    }
+}
+
+/* Logo animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.logo {
+    animation: pulse 2s infinite;
+}
+
+/* Button effects */
+.focus\:shadow-outline:focus {
+    box-shadow: 0 0 0 3px rgba(245, 124, 0, 0.5);
+}
+
+button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+button:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(20, 20);
+        opacity: 0;
+    }
+}
+
+button:focus:not(:active)::after {
+    animation: ripple 1s ease-out;
+}
+
+/* Enhanced footer styles */
+footer {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(245, 124, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    padding: 0.75rem 0 !important;
+    margin-top: auto !important;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+    width: 100%;
+}
+
+/* Special styling for login page footer */
+.login-page-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #f57c00, #ff9800, #ffb74d, #ff9800, #f57c00);
+    background-size: 200% 100%;
+    animation: gradientSlide 3s linear infinite;
+}
+
+/* Fix error messages breaking layout */
+.text-red-500 {
+    color: #f56565;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    display: block;
+    height: 20px;
+    margin-bottom: 0.5rem;
+}
+
+/* Fix form container to prevent layout breaking */
+.flex-grow.flex.items-center.justify-center {
+    padding: 2rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Hide debug output */
+body > *:not(.layout-wrapper) {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    z-index: -9999 !important;
+}
+
+/* Fix footer width and layout for login page */
+.layout-wrapper footer .container {
+    max-width: 1200px !important;
+    min-height: auto !important;
+    padding: 0 1rem !important;
+    margin: 0 auto !important;
+}
+
+/* Specific styling for login footer */
+.login-footer {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+.layout-wrapper footer .footer-content {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 1rem;
+}
+
+.layout-wrapper footer .footer-content > div {
+    margin-bottom: 0 !important;
+}
+
+/* Make footer text more compact */
+footer .text-gray-600 {
+    font-size: 0.75rem !important;
+    line-height: 1.2 !important;
+}
+
+footer .footer-logo {
+    font-size: 1.25rem !important;
+    color: #f57c00 !important;
+    font-weight: bold !important;
+}
+
+/* Adjust social icons spacing and style */
+footer .social-icon {
+    margin-right: 0.75rem !important;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+footer .social-icon:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/* Footer links styling */
+footer a.text-gray-600 {
+    position: relative;
+    text-decoration: none;
+    margin: 0 0.5rem !important;
+    transition: all 0.3s ease;
+}
+
+footer a.text-gray-600:hover {
+    color: #f57c00 !important;
+}
+
+footer a.text-gray-600:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: #f57c00;
+    transition: width 0.3s ease;
+}
+
+footer a.text-gray-600:hover:after {
+    width: 100%;
+}
+
+/* Responsive adjustments for footer */
+@media (max-width: 640px) {
+    .layout-wrapper footer .footer-content {
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+    
+    .layout-wrapper footer .footer-content > div:first-child {
+        margin-bottom: 0.5rem !important;
+    }
+    
+    footer a.text-gray-600 {
+        margin: 0 0.25rem !important;
+        font-size: 0.7rem !important;
+    }
+}
+
+@keyframes gradientSlide {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 200% 0%;
+    }
+}
+
+.footer-content {
+    position: relative;
+    z-index: 1;
+}
+
+.footer-logo {
+    display: inline-block;
+    position: relative;
+}
+
+.footer-logo::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #f57c00;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.footer-logo:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.footer-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23f57c00"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23f57c00"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23f57c00"/></svg>');
+    background-size: 1200px 100%;
+    animation: wave 10s linear infinite;
+}
+
+@keyframes wave {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: 1200px;
+    }
+}
+
+/* Social icons animation */
+.social-icon {
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+    color: #f57c00;
+}

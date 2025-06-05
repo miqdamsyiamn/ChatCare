@@ -1,0 +1,13 @@
+# Enable PHP processing
+AddType application/x-httpd-php .php
+
+# Force PHP to handle PHP files
+<FilesMatch \.php$>
+    SetHandler application/x-httpd-php
+</FilesMatch>
+
+# URL rewriting rules
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]

@@ -1,0 +1,245 @@
+/* Mood visualization styles */
+
+/* Chart containers */
+.chart-container {
+    position: relative;
+    margin: 0 auto;
+    height: 300px;
+    width: 100%;
+}
+
+.chart-wrapper {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.chart-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+/* Mood summary card */
+.mood-summary {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.mood-summary-header {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.mood-summary-body {
+    padding: 1rem;
+}
+
+/* Current mood display */
+.current-mood {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.current-mood.positif {
+    background-color: #e8f5e9;
+}
+
+.current-mood.netral {
+    background-color: #e3f2fd;
+}
+
+.current-mood.negatif {
+    background-color: #ffebee;
+}
+
+.mood-emoji {
+    font-size: 3rem;
+    margin-right: 1rem;
+}
+
+.mood-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Progress bars */
+.progress-container {
+    margin-bottom: 1rem;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.25rem;
+}
+
+.progress-label {
+    font-weight: 500;
+}
+
+.progress-value {
+    font-weight: 500;
+}
+
+.progress-bar {
+    height: 0.5rem;
+    border-radius: 9999px;
+    background-color: #f5f5f5;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 9999px;
+    transition: width 0.5s ease-in-out;
+}
+
+.progress-fill.positif {
+    background-color: #4caf50;
+}
+
+.progress-fill.netral {
+    background-color: #2196f3;
+}
+
+.progress-fill.negatif {
+    background-color: #f44336;
+}
+
+/* Personal mood stats (for members) */
+.personal-mood {
+    background-color: #f5f5f5;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.personal-mood-header {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.personal-mood-status {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.personal-mood-status.positif {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.personal-mood-status.netral {
+    background-color: #e3f2fd;
+    color: #1565c0;
+}
+
+.personal-mood-status.negatif {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.mood-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+.mood-stat-card {
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    text-align: center;
+}
+
+.mood-stat-card.positif {
+    background-color: #e8f5e9;
+}
+
+.mood-stat-card.netral {
+    background-color: #e3f2fd;
+}
+
+.mood-stat-card.negatif {
+    background-color: #ffebee;
+}
+
+.mood-stat-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.mood-stat-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Action buttons */
+.action-button {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.action-button.primary {
+    background-color: #f57c00;
+    color: white;
+}
+
+.action-button.primary:hover {
+    background-color: #e65100;
+}
+
+.action-button.secondary {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.action-button.secondary:hover {
+    background-color: #e0e0e0;
+}
+
+.action-button.danger {
+    background-color: #f44336;
+    color: white;
+}
+
+.action-button.danger:hover {
+    background-color: #d32f2f;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .chart-container {
+        height: 250px;
+    }
+    
+    .mood-emoji {
+        font-size: 2.5rem;
+    }
+    
+    .mood-text {
+        font-size: 1.25rem;
+    }
+}
