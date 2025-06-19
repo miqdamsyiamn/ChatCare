@@ -1,8 +1,8 @@
-# ChatcareFix
+# ChatCare
 
 ## Deskripsi Proyek
 
-ChatcareFix adalah aplikasi berbasis web yang dirancang untuk memfasilitasi diskusi kelompok dengan analisis emosi secara real-time. Aplikasi ini menggunakan teknologi analisis sentimen untuk mengidentifikasi dan melacak emosi pengguna selama diskusi, memungkinkan pemimpin diskusi untuk memantau suasana hati tim dan mengambil tindakan yang tepat.
+ChatCare adalah aplikasi berbasis web yang dirancang untuk memfasilitasi diskusi kelompok dengan analisis emosi secara real-time. Aplikasi ini menggunakan teknologi analisis sentimen untuk mengidentifikasi dan melacak emosi pengguna selama diskusi, memungkinkan pemimpin diskusi untuk memantau suasana hati tim dan mengambil tindakan yang tepat.
 
 ## Struktur Folder
 
