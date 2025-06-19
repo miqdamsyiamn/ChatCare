@@ -3494,3 +3494,7 @@
 [04-Jun-2025 19:37:23 Europe/Berlin] Fetching messages for chat_id: 10, after timestamp: 2025-06-04 19:36:20
 [04-Jun-2025 19:37:23 Europe/Berlin] Found 0 messages after timestamp
 [04-Jun-2025 19:37:23 Europe/Berlin] JSON Response: {"success":true,"data":{"messages":[],"mood_data":{"mood_id":9,"session_id":9,"team_mood":"negatif","emotion_summary":"{\"netral\": 1, \"negatif\": 3, \"positif\": 0}"},"current_user_id":"6ed18e24-39dd-11f0-b18d-40c2ba0d798c","timestamp":"2025-06-04 19:37:23"}}
+[19-Jun-2025 02:55:32 Europe/Berlin] Login attempt for user: ucups
+[19-Jun-2025 02:55:32 Europe/Berlin] Password from form: ucu***
+[19-Jun-2025 02:55:32 Europe/Berlin] Stored hash in DB: $2y$10$2N7***
+[19-Jun-2025 02:55:32 Europe/Berlin] Password verification successful with password_verify

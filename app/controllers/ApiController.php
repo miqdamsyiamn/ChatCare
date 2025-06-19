@@ -9,6 +9,7 @@ class ApiController extends Controller {
     private $messageModel;
     private $moodModel;
     private $geminiService;
+    private $db;
     
     /**
      * Constructor

@@ -7,8 +7,8 @@
 
 return [
     'host' => 'localhost',
-    'username' => 'chatcare',
-    'password' => '-hGtfqt9KM7+243U_M',
+    'username' => 'root',
+    'password' => '',
     'database' => 'chatcare_db',
     'charset' => 'utf8mb4',
     'collation' => 'utf8mb4_unicode_ci',
