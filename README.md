@@ -57,8 +57,6 @@ Auto-feedback: MessageModel → GeminiService → Simpan feedback → chatroom.j
 - **GeminiService** (`app/core/GeminiService.php`):
   - Menganalisis emosi pesan via Google Gemini API (positif/negatif/netral)
   - Generate feedback otomatis untuk pesan negatif
-- **AIChatService** (`app/services/AIChatService.php`):
-  - Fitur chat AI pribadi (opsional)
 - **Konfigurasi API**: `config/gemini.php`
 
 ## Endpoint & Routing
