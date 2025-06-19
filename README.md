@@ -2,34 +2,29 @@
 
 ## Deskripsi Proyek
 
-ChatCare adalah aplikasi web diskusi kelompok dengan analisis emosi real-time. Setiap pesan dianalisis menggunakan Google Gemini API untuk mendeteksi emosi (positif, negatif, netral), sehingga pemimpin diskusi dapat memantau suasana tim dan mengambil tindakan yang tepat. Aplikasi ini juga menyediakan auto-feedback AI, visualisasi mood, dan laporan diskusi.
+ChatcareFix adalah aplikasi berbasis web yang dirancang untuk memfasilitasi diskusi kelompok dengan analisis emosi secara real-time. Aplikasi ini menggunakan teknologi analisis sentimen untuk mengidentifikasi dan melacak emosi pengguna selama diskusi, memungkinkan pemimpin diskusi untuk memantau suasana hati tim dan mengambil tindakan yang tepat.
 
-## Fitur Utama
+## Struktur Folder
 
-- **Autentikasi & Manajemen Pengguna**: Login, register, dan pengelolaan user (admin/leader/member)
-- **Diskusi & Chatroom**: Pembuatan sesi diskusi, chat real-time, polling pesan otomatis
-- **Analisis Emosi Otomatis**: Setiap pesan dianalisis AI (Google Gemini) untuk label emosi
-- **Auto-Feedback AI**: Sistem memberikan feedback otomatis jika terdeteksi emosi negatif beruntun
-- **Visualisasi Mood**: Grafik mood tim secara real-time (Chart.js)
-- **Laporan Diskusi**: Generate laporan hasil diskusi dan mood
-- **Keamanan**: Validasi session, filter duplikasi pesan, logging error
-
-## Struktur Folder & Penjelasan
+Berikut adalah struktur folder utama dari proyek ChatcareFix:
 
 ```
-ChatCare/
-├── app/
-│   ├── controllers/   # Controller utama: AuthController, ChatroomController, DashboardController, DiscussionController, HomeController, MoodController, ReportController, UserController, ApiController
-│   ├── core/          # Core framework: App, Autoloader, Controller, Database, GeminiService
-│   ├── models/        # Model: UserModel, MessageModel, EmotionModel, MoodModel, ReportModel, SessionModel
-│   ├── services/      # AIChatService (fitur chat AI pribadi)
-│   └── views/         # View: auth, chatroom, dashboard, discussions, home, layouts, mood, reports, users
-├── config/            # Konfigurasi database & Gemini API
-├── public/            # Asset publik (css, js, img, index.php)
-├── routes/            # Routing aplikasi (web.php)
-├── storage/           # File workflow, log, dan upload (chatcare_workflow.dot/png/txt, generate_workflow_image.php)
-├── logs/              # Log error PHP (php-errors.log)
-└── chatcare_db.sql    # Struktur & data database
+ChatcareFix/
+├── chatcare/                  # Folder utama aplikasi
+│   ├── app/                   # Logika aplikasi (MVC)
+│   │   ├── controllers/       # Controller untuk menangani request
+│   │   ├── core/              # Core framework
+│   │   ├── models/            # Model untuk interaksi dengan database
+│   │   └── views/             # View untuk tampilan
+│   ├── config/                # File konfigurasi
+│   ├── public/                # File publik (CSS, JS, gambar)
+│   │   ├── css/               # File CSS
+│   │   ├── js/                # File JavaScript
+│   │   └── index.php          # Entry point aplikasi
+│   ├── routes/                # Definisi routing
+│   ├── storage/               # Penyimpanan file (upload, log, dll)
+│   └── .htaccess              # Konfigurasi Apache
+└── chatcare_db.sql            # Struktur dan data database
 ```
 
 ### Penjelasan File/Fitur Penting
