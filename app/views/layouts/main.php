@@ -26,6 +26,9 @@
     
     <!-- CSS Fixes -->
     <link rel="stylesheet" href="/css/fixes.css">
+
+    <!-- Icon -->
+    <link rel="icon" type="image/x-icon" href="/img/logo/logochatcarebig.ico">
     
     <style type="text/tailwind">
         @layer base {
