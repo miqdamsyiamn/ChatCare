@@ -3498,3 +3498,15 @@
 [19-Jun-2025 02:55:32 Europe/Berlin] Password from form: ucu***
 [19-Jun-2025 02:55:32 Europe/Berlin] Stored hash in DB: $2y$10$2N7***
 [19-Jun-2025 02:55:32 Europe/Berlin] Password verification successful with password_verify
+[01-Jul-2025 10:16:44 Europe/Berlin] Login attempt for user: miqdam
+[01-Jul-2025 10:16:44 Europe/Berlin] Password from form: miq***
+[01-Jul-2025 10:16:44 Europe/Berlin] Stored hash in DB: $2y$10$EOc***
+[01-Jul-2025 10:16:44 Europe/Berlin] Password verification successful with password_verify
+[02-Jul-2025 17:22:26 Europe/Berlin] Login attempt for user: leader@example.com
+[02-Jul-2025 17:22:26 Europe/Berlin] Password from form: lea***
+[02-Jul-2025 17:22:26 Europe/Berlin] Stored hash in DB: $2y$10$2zT***
+[02-Jul-2025 17:22:26 Europe/Berlin] Password verification successful with password_verify
+[02-Jul-2025 17:22:41 Europe/Berlin] Login attempt for user: miqdam
+[02-Jul-2025 17:22:41 Europe/Berlin] Password from form: miq***
+[02-Jul-2025 17:22:41 Europe/Berlin] Stored hash in DB: $2y$10$EOc***
+[02-Jul-2025 17:22:41 Europe/Berlin] Password verification successful with password_verify
